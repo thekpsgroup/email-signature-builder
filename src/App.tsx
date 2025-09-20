@@ -118,7 +118,7 @@ function App() {
   } | null>(null);
 
   const dragRef = useRef<HTMLDivElement>(null);
-  const autoSaveTimeoutRef = useRef<NodeJS.Timeout>();
+  const autoSaveTimeoutRef = useRef<number | undefined>();
 
   const validateField = (field: keyof SignatureData, value: string) => {
     const errors: Partial<SignatureData> = { ...formErrors };
@@ -196,7 +196,7 @@ function App() {
     if (autoSaveTimeoutRef.current) {
       clearTimeout(autoSaveTimeoutRef.current);
     }
-    autoSaveTimeoutRef.current = setTimeout(saveData, 1000);
+    autoSaveTimeoutRef.current = window.setTimeout(saveData, 1000);
   };
 
   const saveData = async () => {
@@ -473,11 +473,6 @@ function App() {
     }
   };
 
-  const toggleElement = (elementId: string) => {
-    setElements(prev => prev.map(el =>
-      el.id === elementId ? { ...el, enabled: !el.enabled } : el
-    ));
-  };
 
   const handleDragStart = (e: React.DragEvent, elementId: string) => {
     setDraggedElement(elementId);
@@ -528,11 +523,6 @@ function App() {
     }
   };
 
-  const applyTemplate = (templateKey: string) => {
-    const template = templates[templateKey as keyof typeof templates];
-    setSelectedTemplate(templateKey);
-    setCustomColors(template.colors);
-  };
 
   const generateSignatureHTML = () => {
     const { name, title, company, email, phone, website, linkedin, twitter, address, logo } = signature;
