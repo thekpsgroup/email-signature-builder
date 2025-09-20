@@ -1,0 +1,17 @@
+{
+  "name": "email-signature-outlook-addin",
+  "version": "1.0.0",
+  "description": "Outlook add-in for creating and inserting email signatures",
+  "main": "taskpane.html",
+  "scripts": {
+    "start": "http-server -p 3000 -c-1",
+    "dev": "http-server -p 3000 -c-1 --cors"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "keywords": ["outlook", "add-in", "email", "signature"],
+  "author": "Email Signature Builder",
+  "license": "MIT"
+}

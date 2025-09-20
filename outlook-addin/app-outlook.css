@@ -1,0 +1,78 @@
+/* Email Signature Builder - Outlook Add-in Styles */
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+/* Notification animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive design for smaller Outlook panes */
+@media (max-width: 400px) {
+    .outlook-content {
+        padding: 12px;
+    }
+
+    .outlook-actions {
+        flex-direction: column;
+    }
+
+    .outlook-btn {
+        margin-bottom: 8px;
+    }
+
+    .outlook-header h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Hide scrollbars in small panes */
+body {
+    overflow: hidden;
+}
+
+#outlook-app {
+    height: 100vh;
+    overflow-y: auto;
+}
