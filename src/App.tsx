@@ -124,7 +124,7 @@ function App() {
     const errors: Partial<SignatureData> = { ...formErrors };
 
     switch (field) {
-      case 'email':
+      case 'email': {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (value && !emailRegex.test(value)) {
           errors.email = 'Invalid email format';
@@ -132,6 +132,7 @@ function App() {
           delete errors.email;
         }
         break;
+      }
       case 'website':
         if (value && !value.startsWith('http') && !value.startsWith('https')) {
           // Auto-add https if missing
